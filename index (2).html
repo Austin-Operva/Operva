@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operva Solutions | Websites, lead follow-up and booking for contractors</title>
+<meta name="description" content="Operva Solutions builds one connected system for concrete, lawn care, landscaping and general contractors: a website, instant lead replies, booking, estimates, reviews and follow-up.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --concrete:#d6d3cc; --slab:#eceae5; --asphalt:#1f2226; --chalk:#2a55e0;
+  --lumber:#b78b55; --paper:#f7f6f3; --muted:#5a5d62;
+  --head:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--slab);color:var(--asphalt);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--chalk);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);font-weight:700;line-height:1;margin:0;letter-spacing:.005em}
+h1{font-size:clamp(3rem,8vw,5.5rem)}
+h2{font-size:clamp(2.2rem,5vw,3.25rem);max-width:16ch}
+h3{font-size:1.6rem}
+p{margin:0 0 1em;max-width:60ch}
+
+header{background:var(--asphalt);color:var(--paper)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
+.logo{font:700 1.7rem/1 var(--head);text-decoration:none;letter-spacing:.02em}
+.logo span{color:var(--lumber)}
+nav a{text-decoration:none;margin-left:24px;font-weight:500;font-size:.95rem}
+nav a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--chalk);color:#fff;padding:14px 26px;font:600 1rem var(--body);text-decoration:none;border:0;cursor:pointer;border-radius:3px}
+.btn:hover{background:#1f43b8}
+header .btn{padding:9px 18px;margin-left:24px;font-size:.9rem}
+
+.hero{padding:72px 0 88px;border-bottom:2px solid var(--asphalt)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero p.lead{font-size:1.25rem;margin:28px 0 32px}
+.hero small{display:block;margin-top:16px;color:var(--muted);font-size:.9rem}
+
+.phone{background:var(--asphalt);border-radius:22px;padding:22px 18px;color:var(--paper);box-shadow:0 0 0 6px var(--concrete)}
+.phone .top{display:flex;justify-content:space-between;font-size:.8rem;opacity:.7;padding:0 4px 14px;border-bottom:1px solid #3a3e44;margin-bottom:14px}
+.msg{max-width:86%;padding:10px 14px;border-radius:14px;font-size:.95rem;line-height:1.4;margin-bottom:10px;opacity:0;animation:pop .45s forwards}
+.msg.in{background:#383c42;border-bottom-left-radius:4px}
+.msg.out{background:var(--chalk);margin-left:auto;border-bottom-right-radius:4px}
+.msg time{display:block;font-size:.72rem;opacity:.65;margin-top:4px}
+.msg:nth-of-type(1){animation-delay:.4s}
+.msg:nth-of-type(2){animation-delay:1.6s}
+.msg:nth-of-type(3){animation-delay:2.8s}
+.msg:nth-of-type(4){animation-delay:4s}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+section{padding:80px 0}
+.problem{background:var(--asphalt);color:var(--paper)}
+.problem h2{color:var(--paper)}
+.problem .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:36px}
+.problem p{color:#d4d2cc}
+
+.sys-list{margin:44px 0 0;padding:0;list-style:none;border-top:2px solid var(--asphalt)}
+.sys-list li{display:grid;grid-template-columns:280px 1fr;gap:32px;padding:26px 0;border-bottom:1px solid var(--concrete)}
+.sys-list h3{color:var(--asphalt)}
+.sys-list p{margin:0;color:var(--muted)}
+
+.steps{background:var(--concrete)}
+.steps ol{margin:44px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-left:3px solid var(--asphalt)}
+.steps li{padding:4px 22px 4px 20px;border-left:0}
+.steps li+li{border-left:1px dashed #8d8a83}
+.steps h3{margin-bottom:10px}
+.steps p{font-size:.97rem;color:#3d4045}
+
+.trades ul{list-style:none;padding:0;margin:36px 0 0;display:flex;flex-wrap:wrap;gap:12px}
+.trades li{border:2px solid var(--asphalt);padding:10px 18px;font:700 1.25rem var(--head);border-radius:3px}
+.trades p{margin-top:28px}
+
+.contact{background:var(--lumber);color:var(--asphalt)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+form{display:grid;gap:14px}
+label{font-weight:600;font-size:.95rem;display:grid;gap:6px}
+input,textarea,select{font:inherit;padding:12px;border:2px solid var(--asphalt);background:var(--paper);border-radius:3px;width:100%}
+textarea{min-height:110px;resize:vertical}
+form .btn{background:var(--asphalt);justify-self:start}
+form .btn:hover{background:#000}
+
+footer{background:var(--asphalt);color:#b9b7b1;padding:32px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+.pricing .intro{margin-top:20px;color:var(--muted)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;border:2px solid var(--asphalt)}
+.tier{padding:32px 28px 36px;display:flex;flex-direction:column;background:var(--paper)}
+.tier+.tier{border-left:2px solid var(--asphalt)}
+.tier.pick{background:var(--asphalt);color:var(--paper)}
+.tier .badge{align-self:flex-start;background:var(--lumber);color:var(--asphalt);font:700 .95rem var(--head);padding:3px 10px;margin-bottom:12px;border-radius:2px}
+.tier .fit{margin:8px 0 22px;font-size:.95rem;color:var(--muted)}
+.tier.pick .fit{color:#c9c7c1}
+.price{font:700 3.4rem/1 var(--head)}
+.price small{font:500 1rem var(--body)}
+.setup{margin:6px 0 24px;font-size:.92rem}
+.tier ul{list-style:none;padding:0;margin:0 0 28px;flex:1}
+.tier li{padding:8px 0 8px 22px;position:relative;font-size:.97rem;border-top:1px solid var(--concrete)}
+.tier.pick li{border-top-color:#3a3e44}
+.tier li::before{content:"";position:absolute;left:2px;top:15px;width:10px;height:6px;border-left:2px solid var(--chalk);border-bottom:2px solid var(--chalk);transform:rotate(-45deg)}
+.tier.pick li::before{border-color:var(--lumber)}
+.tier .btn{text-align:center}
+.tier:not(.pick) .btn{background:var(--asphalt)}
+.tier:not(.pick) .btn:hover{background:#000}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px}
+.options div{border-left:4px solid var(--chalk);padding:2px 0 2px 20px}
+.options h3{margin-bottom:6px}
+.options p{margin:0;color:var(--muted);font-size:.97rem}
+@media (max-width:700px){.options{grid-template-columns:1fr}}
+.pricing .note{margin-top:24px;font-size:.92rem;color:var(--muted);max-width:70ch}
+@media (max-width:860px){
+  .tiers{grid-template-columns:1fr}
+  .tier+.tier{border-left:0;border-top:2px solid var(--asphalt)}
+}
+@media (max-width:860px){
+  .hero .wrap,.problem .cols,.contact .wrap{grid-template-columns:1fr;gap:36px}
+  .sys-list li{grid-template-columns:1fr;gap:6px}
+  .steps ol{grid-template-columns:1fr 1fr;row-gap:32px}
+  .steps li:nth-child(3){border-left:3px solid var(--asphalt)}
+  nav a:not(.btn){display:none}
+  section{padding:60px 0}
+}
+@media (max-width:520px){.steps ol{grid-template-columns:1fr}.steps li+li,.steps li:nth-child(3){border-left:0;border-top:1px dashed #8d8a83;padding-top:20px}}
+@media (prefers-reduced-motion:reduce){.msg{animation:none;opacity:1}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Operva<span>.</span></a>
+    <nav>
+      <a href="#system">What you get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How it works</a>
+      <a href="#contact" class="btn">Book a free call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>The first contractor to reply gets the job.</h1>
+        <p class="lead">Operva Solutions gives concrete, lawn care, landscaping and general contracting crews one system that answers every lead in under a minute, books the site visit and asks for the review afterward.</p>
+        <a class="btn" href="#contact">Book a free 20-minute call</a>
+        <small>No contract to talk. We start with how your jobs come in today.</small>
+      </div>
+      <div class="phone" aria-label="Example text conversation between a homeowner and a contractor's Operva system">
+        <div class="top"><span>Mike's Concrete</span><span>Sat 7:42 pm</span></div>
+        <div class="msg in">Hi, looking to get a 20x24 driveway poured this spring. Can you give me a ballpark?<time>7:42 pm</time></div>
+        <div class="msg out">Thanks for reaching out! We pour driveways in your area. Is it a replacement or new, and can you send a photo of the space?<time>7:42 pm</time></div>
+        <div class="msg in">Replacement. Photo sent.<time>7:44 pm</time></div>
+        <div class="msg out">Got it. Mike will review and confirm a price. Does Tuesday at 4 pm work for a site visit?<time>7:44 pm</time></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="problem">
+    <div class="wrap">
+      <h2>You are on a job site when the phone rings.</h2>
+      <div class="cols">
+        <p>Most contractors run on calls, texts, a notebook and word of mouth. That works until you are mid-pour or running a mower crew and a new customer goes to the next name on Google.</p>
+        <p>Operva catches every call, form and message, answers right away, and puts the job details in one place so you can call back with the information you need to quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="system">
+    <div class="wrap">
+      <h2>One system, six parts that work together.</h2>
+      <ul class="sys-list">
+        <li><h3>Website that gets you found</h3><p>A fast, mobile-friendly site with your services, service area, photos of finished work and a clear way to request a quote.</p></li>
+        <li><h3>Chatbot on your site</h3><p>Answers common questions at any hour, explains your services and collects the customer's name, number and project details.</p></li>
+        <li><h3>Booking and reminders</h3><p>Customers request a site visit online. It lands on your calendar, they get a confirmation, and a reminder goes out before you arrive.</p></li>
+        <li><h3>Quote requests with photos</h3><p>Customers describe the project and upload photos. You get an organized summary. You set every price, always.</p></li>
+        <li><h3>Review requests</h3><p>After a finished job, the customer gets a text with a direct link to leave a Google review.</p></li>
+        <li><h3>Customer list and follow-up</h3><p>Every lead and quote is tracked. If an estimate goes quiet, a polite follow-up goes out so you do not have to remember.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="pricing" class="pricing">
+    <div class="wrap">
+      <h2>Simple monthly pricing.</h2>
+      <p class="intro">One setup fee, one monthly price. No ad budgets to guess at and no long contracts. Cancel any time.</p>
+      <div class="tiers">
+        <div class="tier">
+          <h3>Starter</h3>
+          <p class="fit">For solo operators and small crews who need a real website and faster replies.</p>
+          <div class="price">$149<small>/month</small></div>
+          <p class="setup">$349 one-time setup</p>
+          <ul>
+            <li>Professional website, up to 5 pages</li>
+            <li>Quote request form with photo upload</li>
+            <li>Instant text and email alert for every lead</li>
+            <li>Automatic reply to every new inquiry</li>
+            <li>Google review request after each job</li>
+          </ul>
+          <a class="btn" href="#contact">Start with Starter</a>
+        </div>
+        <div class="tier pick">
+          <span class="badge">Most contractors pick this</span>
+          <h3>Growth</h3>
+          <p class="fit">For crews that want leads answered, booked and followed up without lifting a finger.</p>
+          <div class="price">$299<small>/month</small></div>
+          <p class="setup">$599 one-time setup</p>
+          <ul>
+            <li>Everything in Starter</li>
+            <li>AI chatbot answering questions 24/7</li>
+            <li>Online site-visit booking with reminders</li>
+            <li>Missed-call text-back</li>
+            <li>Automatic follow-up on quiet estimates</li>
+          </ul>
+          <a class="btn" href="#contact">Start with Growth</a>
+        </div>
+        <div class="tier">
+          <h3>Pro</h3>
+          <p class="fit">For busy contractors running several crews or several service areas.</p>
+          <div class="price">$499<small>/month</small></div>
+          <p class="setup">$899 one-time setup</p>
+          <ul>
+            <li>Everything in Growth</li>
+            <li>Customer list and job pipeline in one place</li>
+            <li>Estimate tracking from request to won or lost</li>
+            <li>Separate pages for each service and town</li>
+            <li>Monthly report and priority support</li>
+          </ul>
+          <a class="btn" href="#contact">Start with Pro</a>
+        </div>
+      </div>
+      <div class="options">
+        <div><h3>Seasonal pause</h3><p>Slow winter or off-season? Pause your plan for up to 3 months a year at $49 a month. Your website and quote form stay live and leads still reach you. Chatbot, booking and follow-ups resume when you do.</p></div>
+        <div><h3>Pay annually, get 2 months free</h3><p>Pay for 10 months up front and get all 12. It works on every plan and locks in your rate for the year.</p></div>
+      </div>
+      <p class="note">Prices are in US dollars and shown as founding-client rates for our first contractors. Texting costs and ad spend, if you run ads, are separate.</p>
+    </div>
+  </section>
+
+  <section id="how" class="steps">
+    <div class="wrap">
+      <h2>How we get you set up.</h2>
+      <ol>
+        <li><h3>Walk through your jobs</h3><p>We talk through how leads reach you now, what you quote, and where you work.</p></li>
+        <li><h3>Build and connect</h3><p>We build your site and connect your phone number, calendar and review link.</p></li>
+        <li><h3>Review together</h3><p>You approve the messages the system sends so they sound like you.</p></li>
+        <li><h3>Go live and adjust</h3><p>We launch, watch the first leads come in, and fix what needs fixing.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="trades">
+    <div class="wrap">
+      <h2>Built for the trades.</h2>
+      <ul>
+        <li>Concrete</li><li>Lawn care</li><li>Landscaping</li><li>General contracting</li>
+      </ul>
+      <p>Other trades are coming. If you win work by answering the phone and showing up, get in touch and we will see if it fits.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div>
+        <h2>Tell us about your business.</h2>
+        <p style="margin-top:24px">Send a few details and we will get back to you within one business day to set up a free call.</p>
+      </div>
+      <!-- Replace the mailto address below, or swap the action for Formspree/Netlify Forms. -->
+      <form action="mailto:hello@operva.example" method="post" enctype="text/plain">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Business name<input name="business" autocomplete="organization"></label>
+        <label>Phone or email<input name="contact" required></label>
+        <label>Type of work
+          <select name="trade">
+            <option>Concrete</option><option>Lawn care</option><option>Landscaping</option><option>General contracting</option><option>Other</option>
+          </select>
+        </label>
+        <label>How do new customers reach you today?<textarea name="notes"></textarea></label>
+        <button class="btn" type="submit">Request my free call</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Operva Solutions</span>
+    <span>hello@operva.example</span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
